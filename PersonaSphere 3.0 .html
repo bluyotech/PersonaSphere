@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Page</title>
+    <style>
+        /* Default Light Mode */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+            background-size: 400% 400%;
+            animation: Gradient 15s ease infinite;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        .profile-picture {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 3px solid #0078d7;
+            animation: bounce 1.5s infinite ease-in-out;
+        }
+
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #0078d7;
+            margin-bottom: 10px;
+        }
+
+        .bio {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .link-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .link-list li {
+            margin: 15px 0;
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            align-items: center;
+        }
+
+        .link-list a {
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #0078d7;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: 30px;
+            background-color: #f5f5f5;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, background-color 0.3s;
+            width: 100%;
+        }
+
+        .link-list a:hover {
+            transform: scale(1.1);
+            background-color: #0078d7;
+            color: white;
+        }
+
+        .link-list a img {
+            margin-right: 10px;
+            filter: hue-rotate(200deg); /* Makes the icons blue */
+            transition: filter 0.3s;
+        }
+
+        .link-list a img:hover {
+            filter: hue-rotate(200deg) brightness(1.2); /* Brightens blue on hover */
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Reduced the gap between icons */
+            margin-bottom: 30px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px; /* Reduced width */
+            height: 40px; /* Reduced height */
+            border-radius: 50%;
+            background: #f5f5f5;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.1);
+            background-color: #0078d7;
+        }
+
+        .dark-mode-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #0078d7;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s;
+        }
+
+        .dark-mode-btn:hover {
+            background: #005ba1;
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            background: linear-gradient(-45deg, #2c3e50, #4c6f8c, #16a085, #2ecc71); /* Darker gradient */
+        }
+
+        body.dark-mode .container {
+            background: #34495e;
+            color: #ddd;
+        }
+
+        body.dark-mode .link-list a {
+            background-color: #555;
+            color: white;
+        }
+
+        body.dark-mode .link-list a:hover {
+            background-color: #0078d7;
+            color: white;
+        }
+
+        body.dark-mode .link-list a img {
+            filter: hue-rotate(200deg); /* Keeps icons blue in dark mode */
+        }
+
+        body.dark-mode .social-links a {
+            background: #555;
+        }
+
+        body.dark-mode .social-links a:hover {
+            background-color: #0078d7;
+        }
+
+        body.dark-mode .bio {
+            color: white; /* Making bio text white in dark mode */
+        }
+
+        @keyframes Gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="profile-picture">
+        <img src="https://via.placeholder.com/120" alt="Your Picture">
+    </div>
+    <div class="name">Your Name</div>
+    <div class="bio">A brief description about yourself. Tech enthusiast, creator, and innovator.</div>
+
+    <ul class="link-list">
+        <li>
+            <a href="https://example1.com" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/128/5070/5070407.png" alt="Link 1 Icon" width="20" height="20"> Link 1
+            </a>
+        </li>
+        <li>
+            <a href="https://example2.com" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/128/3916/3916611.png" alt="Link 2 Icon" width="20" height="20"> Link 2
+            </a>
+        </li>
+    </ul>
+
+    <div class="social-links">
+        <a href="https://github.com" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111432.png" alt="GitHub Icon" width="24" height="24">
+        </a>
+        <a href="https://linkedin.com" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn Icon" width="24" height="24">
+        </a>
+        <a href="https://twitter.com" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter Icon" width="24" height="24">
+        </a>
+        <a href="https://instagram.com" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram Icon" width="24" height="24">
+        </a>
+        <a href="https://youtube.com" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube Icon" width="24" height="24">
+        </a>
+    </div>
+</div>
+
+<!-- Dark Mode Button -->
+<button class="dark-mode-btn" id="darkModeToggle">Dark Mode Toggle</button>
+
+<script>
+    function toggleDarkMode() {
+        const body = document.body;
+        const toggleButton = document.getElementById('darkModeToggle');
+        
+        body.classList.toggle('dark-mode');
+        toggleButton.textContent = body.classList.contains('dark-mode') 
+            ? 'White Mode Toggle' 
+            : 'Dark Mode Toggle';
+    }
+
+    document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
+</script>
+
+</body>
+</html>
